@@ -15,11 +15,6 @@ public class Friendships {
         return friendships.get(person);
     }
 
-    public int getNumberOfFriends(String person) {
-        if (!friendships.containsKey(person)) return 0;
-        return friendships.get(person).size();
-    }
-    
     public boolean areFriends(String person1, String person2) {
         return friendships.containsKey(person1) && friendships.get(person1).contains(person2);
     }

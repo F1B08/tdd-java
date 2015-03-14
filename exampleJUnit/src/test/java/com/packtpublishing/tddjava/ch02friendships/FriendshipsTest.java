@@ -3,6 +3,9 @@ package com.packtpublishing.tddjava.ch02friendships;
 import com.packtpublishing.tddjava.ch02friendships.Friendships;
 import org.junit.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class FriendshipsTest {
     @BeforeClass
     public static void beforeClass() {
@@ -29,7 +32,6 @@ public class FriendshipsTest {
         Friendships friendships = new Friendships();
 
         Assert.assertTrue("Joe does not have friends", friendships.getFriendsList("Joe").isEmpty());
-        Assert.assertEquals("Joe has 0 friends", 0, friendships.getNumberOfFriends("Joe"));
     }
     
     @Test
@@ -41,10 +43,10 @@ public class FriendshipsTest {
         Assert.assertTrue("Audrey and Joe are friends", friendships.areFriends("Audrey", "Joe"));
 
         Assert.assertTrue("Joe is Audrey's friend", friendships.getFriendsList("Joe").contains("Audrey"));
-        Assert.assertEquals("Joe has 1 friend", 1, friendships.getNumberOfFriends("Joe"));
+        Assert.assertEquals("Joe has 1 friend", 1, friendships.getFriendsList("Joe").size());
 
         Assert.assertTrue("Audrey is Joe's friend", friendships.getFriendsList("Audrey").contains("Joe"));
-        Assert.assertEquals("Joe has 1 friend", 1, friendships.getNumberOfFriends("Audrey"));
+        Assert.assertEquals("Joe has 1 friend", 1, friendships.getFriendsList("Audrey").size());
     }
     
     @Test(timeout = 10)
@@ -56,8 +58,11 @@ public class FriendshipsTest {
         friendships.makeFriends("Joe", "Britney");
         friendships.makeFriends("Joe", "Paul");
 
-        Assert.assertEquals("Joe has 5 friends", 5, friendships.getNumberOfFriends("Joe"));
+        Assert.assertEquals("Joe has 5 friends", 5, friendships.getFriendsList("Joe").size());
         Assert.assertTrue("Joe and Paul are friends", friendships.areFriends("Joe", "Paul"));
         Assert.assertFalse("Joe and Ralph are not friends", friendships.areFriends("Joe", "Ralph"));
+
+        List<String> friendsOfJoe = Arrays.asList("Audrey", "Peter", "Michael", "Britney", "Paul");
+        Assert.assertTrue(friendships.getFriendsList("Joe").containsAll(friendsOfJoe));
     }
 }
