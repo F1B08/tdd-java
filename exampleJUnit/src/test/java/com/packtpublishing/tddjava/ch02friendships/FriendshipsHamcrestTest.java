@@ -1,9 +1,6 @@
 package com.packtpublishing.tddjava.ch02friendships;
 
-import org.junit.*;
-
-import java.util.Arrays;
-import java.util.List;
+import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -17,7 +14,7 @@ public class FriendshipsHamcrestTest {
 
         assertThat(friendships.getFriendsList("Joe"), empty());
     }
-    
+
     @Test
     public void test2() {
         Friendships friendships = new Friendships();
@@ -32,7 +29,7 @@ public class FriendshipsHamcrestTest {
         assertThat(friendships.getFriendsList("Audrey"), hasSize(1));
         assertThat("Joe", isIn(friendships.getFriendsList("Audrey")));
     }
-    
+
     @Test(timeout = 10)
     public void test3() {
         Friendships friendships = new Friendships();

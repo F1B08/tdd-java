@@ -1,6 +1,5 @@
 package com.packtpublishing.tddjava.ch02friendships;
 
-import com.packtpublishing.tddjava.ch02friendships.Friendships;
 import org.junit.*;
 
 import java.util.Arrays;
@@ -26,19 +25,19 @@ public class FriendshipsTest {
     public void after() {
         // This method will be executed once after each test execution
     }
-    
+
     @Test
     public void test1() {
         Friendships friendships = new Friendships();
 
         Assert.assertTrue("Joe does not have friends", friendships.getFriendsList("Joe").isEmpty());
     }
-    
+
     @Test
     public void test2() {
         Friendships friendships = new Friendships();
         friendships.makeFriends("Joe", "Audrey");
-        
+
         Assert.assertTrue("Joe and Audrey are friends", friendships.areFriends("Joe", "Audrey"));
         Assert.assertTrue("Audrey and Joe are friends", friendships.areFriends("Audrey", "Joe"));
 
@@ -48,7 +47,7 @@ public class FriendshipsTest {
         Assert.assertTrue("Audrey is Joe's friend", friendships.getFriendsList("Audrey").contains("Joe"));
         Assert.assertEquals("Joe has 1 friend", 1, friendships.getFriendsList("Audrey").size());
     }
-    
+
     @Test(timeout = 10)
     public void test3() {
         Friendships friendships = new Friendships();

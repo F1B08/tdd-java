@@ -1,10 +1,8 @@
 package com.packtpublishing.tddjava.ch02friendships;
 
-import org.junit.*;
+import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class FriendshipsAssertJTest {
     @Test
@@ -13,7 +11,7 @@ public class FriendshipsAssertJTest {
 
         assertThat(friendships.getFriendsList("Joe")).isEmpty();
     }
-    
+
     @Test
     public void test2() {
         Friendships friendships = new Friendships();
@@ -26,7 +24,7 @@ public class FriendshipsAssertJTest {
 
         assertThat(friendships.getFriendsList("Audrey")).hasSize(1).contains("Joe");
     }
-    
+
     @Test(timeout = 10)
     public void test3() {
         Friendships friendships = new Friendships();
