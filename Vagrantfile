@@ -15,4 +15,8 @@ Vagrant.configure(2) do |config|
     d.run "mongoDB", image: "mongo:2", args: "-p 27017:27017"
   end
 
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.scope = :box
+  end
+
 end
