@@ -3,7 +3,7 @@ package com.packtpublishing.tddjava.ch02friendships;
 import java.util.*;
 
 public class Friendships {
-    Map<String, List<String>> friendships = new HashMap<>();
+    private final Map<String, List<String>> friendships = new HashMap<>();
 
     public void makeFriends(String person1, String person2) {
         addFriend(person1, person2);
